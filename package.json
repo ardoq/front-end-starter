@@ -23,7 +23,7 @@
     "regenerator-runtime": "0.13.5",
     "stylelint": "13.2.1",
     "stylelint-config-standard": "20.0.0",
-    "stylelint-order": "4.0.0",
+    "stylelint-order": "4.1.0",
     "terser-webpack-plugin": "2.3.5",
     "ts-loader": "6.2.1",
     "typescript": "3.8.3",
