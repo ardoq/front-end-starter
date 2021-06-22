@@ -1,10 +1,11 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const devConfig = require('./webpack.config');
 
 module.exports = () =>
-  merge.smartStrategy()(devConfig, {
+  merge(devConfig, {
+    mode: 'production',
     output: {
       path: `${__dirname}/dist`,
       publicPath: '/',

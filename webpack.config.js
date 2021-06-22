@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -14,10 +13,22 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif|eot|woff|woff2|ttf)$/,
+        type: 'asset/resource',
+      },
     ],
   },
   resolve: {
+    modules: [path.resolve(__dirname, 'node_modules'), path.resolve('src/app')],
     extensions: ['.tsx', '.ts', '.js'],
+  },
+  experiments: {
+    asset: true,
   },
   output: {
     path: `${__dirname}/dist`,
