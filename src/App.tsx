@@ -1,17 +1,27 @@
 import React from 'react';
-import styled from 'styled-components';
+import { dispatchAction } from 'rxbeach';
+import { connect } from 'rxbeach/react';
+import Child from './Child';
+import Button from './components/Button';
+import {
+  StreamState,
+  resetCounter,
+  state$,
+  updateCounter,
+} from './state/state$';
 
-interface AppProps {
-  name: string;
-}
+const App = ({ count }: StreamState) => {
+  return (
+    <div>
+      {count}
+      <Button onClick={() => dispatchAction(updateCounter(count + 1))}>
+        💯
+      </Button>
 
-const Container = styled.div`
-  margin-top: 20px;
-  text-align: center;
-`;
-
-const App = ({ name }: AppProps) => {
-  return <Container>Hello {name}!</Container>;
+      <Button onClick={() => dispatchAction(resetCounter())}>reset</Button>
+      <Child />
+    </div>
+  );
 };
 
-export default App;
+export default connect(App, state$);
