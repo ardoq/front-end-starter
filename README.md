@@ -8,7 +8,7 @@
 
 ### How to use this?
 1. `git clone git@github.com:ardoq/front-end-starter.git`
-2. `cd front-endstarter && rm -rf .git`
+2. `cd front-end-starter && rm -rf .git`
 3. `yarn install`
 4. Transform it into your needs!
 
